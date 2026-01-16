@@ -1,4 +1,6 @@
-Here is a professional, ready-to-use `README.md` for your project. You can copy and paste this directly into your GitHub repository or project folder.
+Here is the updated `README.md` with the system diagram inserted right in the center, between the mathematical model and the project structure.
+
+**Note:** Save the image I generated for you in the previous step as `system_diagram.png` and place it in your project folder.
 
 ---
 
@@ -20,7 +22,7 @@ This project simulates a mechanical Mass-Spring-Damper system driven by a sinuso
 * **Performance Analysis:** Includes visualization of  (3-sigma) error bounds to validate filter consistency.
 
 ## ⚙️ Mathematical Model
-![System Schematic](massspringdamper.png)
+
 ### Continuous System
 
 The system is defined by the differential equation:
@@ -35,7 +37,8 @@ The continuous system is discretized with time step :
 1. **State Transition:** 
 2. **Process Noise ():** Computed via the matrix exponential of the Hamiltonian block matrix (Van Loan's Method).
 3. **Predict Step:**
-* 
+*   $\hat{x}_{k|k-1} = A_d \hat{x}_{k-1|k-1} + B_d u_k
+    P_{k|k-1} = A_d P_{k-1|k-1} A_d^T + Q_d$
 * 
 
 
@@ -46,13 +49,24 @@ The continuous system is discretized with time step :
 
 
 
+---
+
+## 🖼️ System Diagram
+
+The following schematic illustrates the physical parameters () simulated in this project:
+
+*Figure 3: Schematic of the Mass-Spring-Damper System*
+
+---
+
 ## 📂 Project Structure
 
 ```
 .
-├── simulation.py       # Implements script containing System and Filter classes
+├── simulation.py       # Main script containing System and Filter classes
 ├── Figure_1.png        # Plot of State Estimates vs Ground Truth
 ├── Figure_2.png        # Plot of Estimation Errors with 3-Sigma bounds
+├── system_diagram.png  # Schematic of the mechanical system
 └── README.md           # Project documentation
 
 ```
@@ -109,3 +123,7 @@ Sw = 0.01                # Process noise spectral density
 Sv = 0.00001             # Measurement noise standard deviation
 
 ```
+
+## 📜 License
+
+This project is open-source and available under the MIT License.
