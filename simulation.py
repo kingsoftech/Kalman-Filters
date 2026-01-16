@@ -6,7 +6,7 @@ import mass_spring_dampersystem
 
 
     # Initialize System
-msds = mass_spring_dampersystem.MassSpringDamperSystem(mass=50.0, spring_constant=2.0, damping_coefficient=4.0, dt=0.1)
+msds = mass_spring_dampersystem.MassSpringDamperSystem(mass=50.0, spring_constant=4.0, damping_coefficient=2.0, dt=0.1)
 
 # Extract Model Matrices
 # Note: We must call .models() to get the matrices, they are not attributes of msds
@@ -54,7 +54,7 @@ error_hist = x_hist - x_est_hist
 plt.figure(figsize=(12, 6))
 
 # Define colors for clarity (State 1 = Blue, State 2 = Orange/Red)
-colors = ['green', 'orange']
+colors = ['green', 'orange', 'blue', 'red']
 labels_true = ['True Position', 'True Velocity']
 labels_est = ['Position Estimate', 'Velocity Estimate']
 
@@ -64,14 +64,14 @@ for k in range(2):
     plt.plot(t_hist, x_hist[k, :], color=colors[k], linestyle='-', linewidth=1.5, label=labels_true[k])
     
     # 2. Plot Estimate (Dashed Line)
-    plt.plot(t_hist, x_est_hist[k, :], color=colors[k], linestyle='--', linewidth=1.5, label=labels_est[k])
+    plt.plot(t_hist, x_est_hist[k, :], color=colors[k+1], linestyle='--', linewidth=1.5, label=labels_est[k])
     
     # 3. Plot Bounds (Shaded Region)
     # Python's fill_between replaces the complex [t fliplr(t)] construction
     plt.fill_between(t_hist, 
                      x_est_hist[k, :] - threeSigma_hist[k, :], 
                      x_est_hist[k, :] + threeSigma_hist[k, :], 
-                     color="red", alpha=0.2, linewidth=0, label=f'Bounds State {k+1}')
+                     color=colors[k+1], alpha=0.2, linewidth=0, label=f'Bounds State {k+1}')
 
 plt.title('Demonstration of Kalman filter state estimates')
 plt.xlabel('Time (s)')
@@ -93,7 +93,7 @@ for k in range(nx):
     plt.fill_between(t_hist, 
                      -threeSigma_hist[k, :], 
                      threeSigma_hist[k, :], 
-                     color='green', alpha=0.25, linewidth=0, label='3$\sigma$ Bound')
+                     color=colors[k], alpha=0.25, linewidth=0, label='3$\sigma$ Bound')
     
     # 2. Plot Error
     plt.plot(t_hist, xerr[k, :], 'b', linewidth=1.5, label='Error')

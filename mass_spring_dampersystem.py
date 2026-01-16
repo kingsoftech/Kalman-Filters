@@ -33,7 +33,7 @@ class MassSpringDamperSystem:
         
         # Discrete Measurement Noise
         Sv = 0.00001
-        Rd = np.array([[Sv**2 * self.dt]]) 
+        Rd = np.array([[Sv * self.dt]]) 
 
         # System Discretization
         Ad = expm(A * self.dt)
