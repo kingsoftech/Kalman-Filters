@@ -20,7 +20,7 @@ This project simulates a mechanical Mass-Spring-Damper system driven by a sinuso
 * **Performance Analysis:** Includes visualization of  (3-sigma) error bounds to validate filter consistency.
 
 ## ⚙️ Mathematical Model
-![System Schematic](massspringdamper.pngsystem_diagram.png)
+![System Schematic](massspringdamper.png)
 ### Continuous System
 
 The system is defined by the differential equation:
