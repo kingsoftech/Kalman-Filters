@@ -54,7 +54,7 @@ error_hist = x_hist - x_est_hist
 plt.figure(figsize=(12, 6))
 
 # Define colors for clarity (State 1 = Blue, State 2 = Orange/Red)
-colors = ['b', 'orange']
+colors = ['green', 'orange']
 labels_true = ['True Position', 'True Velocity']
 labels_est = ['Position Estimate', 'Velocity Estimate']
 
@@ -71,7 +71,7 @@ for k in range(2):
     plt.fill_between(t_hist, 
                      x_est_hist[k, :] - threeSigma_hist[k, :], 
                      x_est_hist[k, :] + threeSigma_hist[k, :], 
-                     color=colors[k], alpha=0.2, linewidth=0, label=f'Bounds State {k+1}')
+                     color="red", alpha=0.2, linewidth=0, label=f'Bounds State {k+1}')
 
 plt.title('Demonstration of Kalman filter state estimates')
 plt.xlabel('Time (s)')
@@ -93,7 +93,7 @@ for k in range(nx):
     plt.fill_between(t_hist, 
                      -threeSigma_hist[k, :], 
                      threeSigma_hist[k, :], 
-                     color='blue', alpha=0.25, linewidth=0, label='3$\sigma$ Bound')
+                     color='green', alpha=0.25, linewidth=0, label='3$\sigma$ Bound')
     
     # 2. Plot Error
     plt.plot(t_hist, xerr[k, :], 'b', linewidth=1.5, label='Error')
