@@ -1,9 +1,3 @@
-Here is the updated `README.md` with the system diagram inserted right in the center, between the mathematical model and the project structure.
-
-**Note:** Save the image I generated for you in the previous step as `system_diagram.png` and place it in your project folder.
-
----
-
 # Kalman Filter for Mass-Spring-Damper System
 
 A Python implementation of a discrete-time Kalman Filter used to estimate the state (position and velocity) of a Mass-Spring-Damper system. This project demonstrates advanced control theory concepts, including **Van Loan’s method** for discretizing process noise covariance.
@@ -22,7 +16,7 @@ This project simulates a mechanical Mass-Spring-Damper system driven by a sinuso
 * **Performance Analysis:** Includes visualization of  (3-sigma) error bounds to validate filter consistency.
 
 ## ⚙️ Mathematical Model
-
+![System Schematic](massspringdanper.png)
 ### Continuous System
 
 The system is defined by the differential equation:
