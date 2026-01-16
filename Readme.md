@@ -49,22 +49,25 @@ $$
 incorporate the new measurement $z_k$ to refine the estimate:
 
 **Kalman Gain:**
+
 $$
 K_k = P_{k|k-1} C^T (C P_{k|k-1} C^T + R)^{-1}
 $$
 
 **State Estimate Update:**
+
 $$
 \hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k (z_k - C \hat{x}_{k|k-1})
 $$
 
 **Covariance Update:**
+
 $$
 P_{k|k} = (I - K_k C) P_{k|k-1}
 $$
 
 --- 
-* 
+ 
 
 
 
