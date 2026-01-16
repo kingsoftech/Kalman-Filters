@@ -34,17 +34,36 @@ Converted to State-Space form :
 
 The continuous system is discretized with time step :
 
-1. **State Transition:** 
-2. **Process Noise ():** Computed via the matrix exponential of the Hamiltonian block matrix (Van Loan's Method).
-3. **Predict Step:**
-*   $\hat{x}_{k|k-1} = A_d \hat{x}_{k-1|k-1} + B_d u_k
-    P_{k|k-1} = A_d P_{k-1|k-1} A_d^T + Q_d$
-* 
+1#### 1. Predict Step (Time Update)
+Project the state and error covariance ahead in time:
 
+$$
+\hat{x}_{k|k-1} = A_d \hat{x}_{k-1|k-1} + B_d u_k
+$$
 
-4. **Update Step:**
-* 
-* 
+$$
+P_{k|k-1} = A_d P_{k-1|k-1} A_d^T + Q_d
+$$
+
+#### 2. Update Step (Measurement Correction)
+incorporate the new measurement $z_k$ to refine the estimate:
+
+**Kalman Gain:**
+$$
+K_k = P_{k|k-1} C^T (C P_{k|k-1} C^T + R)^{-1}
+$$
+
+**State Estimate Update:**
+$$
+\hat{x}_{k|k} = \hat{x}_{k|k-1} + K_k (z_k - C \hat{x}_{k|k-1})
+$$
+
+**Covariance Update:**
+$$
+P_{k|k} = (I - K_k C) P_{k|k-1}
+$$
+
+--- 
 * 
 
 
