@@ -21,7 +21,7 @@ Ad, Bd, Cd, Qd, Rd = imu.models()
 x0, P0 = imu.initial_state()
 
 
-x0, P0 = imu.initial_state()
+
 
 # Generate Ground Truth
 duration = 10.0

@@ -3,7 +3,7 @@ from scipy.linalg import expm
 
 # --- 1. System Model Class ---
 class IMUSystem:
-    def __init__(self, dt=0.01, sigma_gyro=0.1, sigma_bias=0.01, sigma_acc=1.0):
+    def __init__(self, dt=0.01, sigma_gyro=0.1, sigma_bias=0.001, sigma_acc=1.0):
         self.dt = dt
         self.sigma_gyro = sigma_gyro   # deg/s
         self.sigma_bias = sigma_bias   # deg/s^2 (Random Walk)
