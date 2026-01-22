@@ -1,7 +1,7 @@
 import numpy as np
 from scipy.linalg import expm
 import matplotlib.pyplot as plt
-import Kalmanfilter as kf
+import SrKalmanfilter as kf
 from imu_roll_pitch import IMUSystem
 
 # ==========================================
@@ -29,7 +29,7 @@ U, t_hist = imu.systems_input(duration)
 x_hist, z_hist = imu.simulation(U, x0, Ad, Bd, Cd, Qd, Rd)
 
 # Initialize Kalman Filter
-kf = kf.KalmanFilter(A=Ad, B=Bd, C=Cd, Q=Qd, R=Rd, P=P0, x0=x0)
+kf = kf.SrKalmanFilter(A=Ad, B=Bd, C=Cd, Q=Qd, R=Rd, P=P0, x0=x0)
 
 # Run Estimation Loop
 num_steps = x_hist.shape[1]
